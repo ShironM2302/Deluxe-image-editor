@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="assets/ico/favicon.ico">
+  <link rel="logo" type="image/svg" href="assets/img/logo/logo.svg">
+  <link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css?family=Lato|Merienda+One" rel="stylesheet">
+<script src="https://use.fontawesome.com/f20494ed7e.js"></script>
+  <title>Image Editor</title>
+</head>
+<body>
+
+
+
+
+  <header class="header card">
+    <h1 class="title">Image Editor</h1>
+  </header>
+
+
+  <div class="wrapper">
+
+    <section class="photo-booth card">
+
+    <input class="file" id="file" type="file" onchange="previewFile()">
+      <label  class="file-btn" for="file"><span>london.jpg</span><strong>Choose a file</strong></label>
+
+
+
+      <div class="image-photo">
+        <div class="linear-overlay overlay"></div>
+        <div class="solid-overlay overlay"></div>
+        <div class="radial-overlay overlay"></div>
+        <img class="user-image" src="london.jpg">
+    </div>
+
+    <div class="btn-row">
+      <button class="reset btn">RESET</button>
+    </div>
+
+    </section>
+
+  <section class="edit card">
+
+    <h3 class="title sub-title">Filters</h3>
+
+
+
+
+      <label class="range-label" for="blur">Blur:</label>
+      <input class="range-slider" id="blur" type="range" name="blur" min="0" max="25" value="0" data-sizing="px">
+
+      <label class="range-label" for="grayscale">Grayscale:</label>
+      <input class="range-slider" id="grayscale" type="range" name="grayscale" min="0" max="1" value="0" step ="0.1" >
+
+      <label class="range-label" for="sepia">Sepia:</label>
+      <input class="range-slider" id="sepia" type="range" name="sepia" min="0" max="1" value="0" step ="0.1" >
+
+      <label class="range-label" for="saturate">Saturate:</label>
+      <input class="range-slider" id="saturate" type="range" name="saturate" min="0" max="2" value="1" step ="0.1" >
+
+      <label class="range-label" for="invert">Invert:</label>
+      <input class="range-slider" id="invert" type="range" name="invert" min="0" max="1" value="0" step ="0.1" >
+
+      <label class="range-label" for="brightness">Brightness:</label>
+      <input class="range-slider" id="brightness" type="range" name="brightness" min="0" max="2" value="1" step ="0.1" >
+
+      <label class="range-label" for="contrast">Contrast:</label>
+      <input class="range-slider" id="contrast" type="range" name="contrast" min="0" max="2" value="1" step ="0.1" >
+
+      <label class="range-label" for="hue">Hue Rotate:</label>
+      <input class="range-slider" id="hue" type="range" name="hue" min="0" max="360" value="0" step ="1" data-sizing="deg" >
+
+      <label class="range-label" for="spacing">Border Thickness:</label>
+      <input class="range-slider" id="spacing" type="range" name="spacing" min="0" max="100" value="0" data-sizing="px">
+
+      <label class="range-label" for="base">Border Color</label>
+      <input class="color-picker" id="base" type="color" name="base" value="#ffc600">
+
+      <div class="arrow-row">
+        <i class="fa fa-arrow-right arrow" aria-hidden="true"></i>
+      </div>
+
+  </section>
+
+  <section class="instagram card">
+    <h3 class="title sub-title">Overlay</h3>
+
+    <div class="radio-row">
+
+      <ul class="radio-ul">
+        <li class="radio-list">
+          <input type="radio" id="o-none" name="selector" >
+          <label for="o-none">No Overlay</label>
+          <div class="check"></div>
+        </li>
+      <li class="radio-list">
+          <input type="radio" id="o-solid" name="selector">
+          <label for="o-solid">Solid Overlay</label>
+          <div class="check"></div>
+        </li>
+        <li class="radio-list">
+          <input type="radio" id="o-linear" name="selector">
+          <label for="o-linear">Linear Gradient</label>
+          <div class="check"></div>
+        </li>
+        <li class="radio-list">
+          <input type="radio" id="o-radial" name="selector">
+          <label for="o-radial">Radial Gradient</label>
+          <div class="check"></div>
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="overlay-options">
+
+      <div class="solid-option">
+        <label class="range-label" for="solid-overlay">Background Color</label>
+        <input class="color-picker" id="solid-overlay" type="color" name="background-color" value="#ffc600">
+
+        <label class="range-label" for="opacity">Opacity:</label>
+        <input class="range-slider opacity-slider" id="opacity" type="range" name="opacity" min="0" max="1" value="0" step ="0.1" >
+
+        <label class="range-label select-label" for="blend">Mix Blend Mode:</label>
+        <select name="blend" id="blend">
+
+          <option value="normal">normal</option>
+          <option value="multiply">multiply</option>
+          <option value="screen">screen</option>
+          <option value="overlay">overlay</option>
+          <option value="darken">darken</option>
+          <option value="lighten">lighten</option>
+          <option value="color-dodge">color-dodge</option>
+          <option value="color-burn">color-burn</option>
+          <option value="hard-light">hard-light</option>
+          <option value="soft-light">soft-light</option>
+          <option value="difference">difference</option>
+          <option value="exclusion">exclusion</option>
+          <option value="hue">hue</option>
+          <option value="saturation">saturation</option>
+          <option value="color">color</option>
+          <option value="luminosity">luminosity</option>
+        </select>
+
+      </div>
+
+      <div class="linear-option">
+        <label class="range-label" for="color-one">Color 1:</label>
+        <input class="color-picker" id="color-one" type="color" name="backgroundOne" value="#ffc600">
+
+        <label class="range-label" for="color-two">Color 2:</label>
+        <input class="color-picker" id="color-two" type="color" name="backgroundTwo" value="#ffc600">
+
+        <label class="range-label" for="opacity">Opacity:</label>
+        <input class="range-slider opacity-slider" id="opacity" type="range" name="opacity" min="0" max="1" value="0" step ="0.1" >
+
+        <label class="range-label select-label" for="g-direction">Gradient Direction:</label>
+        <select name="g-direction" id="g-direction"  data-sizing="deg">
+          <option value="315" data-sizing="deg">To Bottom Right</option>
+          <option value="45" data-sizing="deg">To Bottom Left</option>
+          <option value="0" data-sizing="deg">To Bottom </option>
+          <option value="270" data-sizing="deg">To Right</option>
+          <option value="90" data-sizing="deg">To Left</option>
+          <option value="225" data-sizing="deg">To Top RIght</option>
+          <option value="135" data-sizing="deg">to top left</option>
+          <option value="180" data-sizing="deg">to top</option>
+        </select>
+
+        <label class="range-label select-label" for="blend">Mix Blend Mode:</label>
+        <select name="blend" id="blend">
+          <option value="normal">normal</option>
+          <option value="multiply">multiply</option>
+          <option value="screen">screen</option>
+          <option value="overlay">overlay</option>
+          <option value="darken">darken</option>
+          <option value="lighten">lighten</option>
+          <option value="color-dodge">color-dodge</option>
+          <option value="color-burn">color-burn</option>
+          <option value="hard-light">hard-light</option>
+          <option value="soft-light">soft-light</option>
+          <option value="difference">difference</option>
+          <option value="exclusion">exclusion</option>
+          <option value="hue">hue</option>
+          <option value="saturation">saturation</option>
+          <option value="color">color</option>
+          <option value="luminosity">luminosity</option>
+        </select>
+
+      </div>
+
+      <div class="radial-option">
+        <label class="range-label" for="color-one">Color 1:</label>
+        <input class="color-picker" id="color-one" type="color" name="backgroundOne" value="#ffc600">
+
+        <label class="range-label" for="color-two">Color 2:</label>
+        <input class="color-picker" id="color-two" type="color" name="backgroundTwo" value="#ffc600">
+
+        <label class="range-label" for="opacity">Opacity:</label>
+        <input class="range-slider opacity-slider" id="opacity" type="range" name="opacity" min="0" max="1" value="0" step ="0.1" >
+
+        <label class="range-label select-label" for="g-shape">Gradient shape:</label>
+        <select name="g-shape" id="g-shape">
+          <option value="ellipse">ellipse</option>
+          <option value="circle">circle </option>
+        </select>
+
+        <label class="range-label select-label" for="blend">Mix Blend Mode:</label>
+        <select name="blend" id="blend">
+          <option value="normal">normal</option>
+          <option value="multiply">multiply</option>
+          <option value="screen">screen</option>
+          <option value="overlay">overlay</option>
+          <option value="darken">darken</option>
+          <option value="lighten">lighten</option>
+          <option value="color-dodge">color-dodge</option>
+          <option value="color-burn">color-burn</option>
+          <option value="hard-light">hard-light</option>
+          <option value="soft-light">soft-light</option>
+          <option value="difference">difference</option>
+          <option value="exclusion">exclusion</option>
+          <option value="hue">hue</option>
+          <option value="saturation">saturation</option>
+          <option value="color">color</option>
+          <option value="luminosity">luminosity</option>
+        </select>
+
+      </div>
+
+
+
+
+    </div>
+
+
+<div class="arrow-row">
+  <i class="fa fa-arrow-left arrow" aria-hidden="true"></i>
+</div>
+
+  </section>
+
+
+</div>
+<!-- end of wrapper -->
+
+
+<script src="script.js"></script>
+</body>
+</html>
